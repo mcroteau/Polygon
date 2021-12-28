@@ -1,0 +1,22 @@
+### Qio Settings ###
+qio.env=create
+qio.assets=benefit
+qio.properties=this
+
+### Db Settings ###
+db.name=db
+db.url=jdbc:h2:~/Polygon
+db.driver=org.h2.Driver
+db.user=sa
+db.pass=
+
+### AWS Settings ###
+aws.bucket=shape.une
+
+###    Textbelt Settings    ###
+# realtime sms notifications  #
+#   https://textbelt.com/     #
+###############################
+key=
+
+

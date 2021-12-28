@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>dev.j2ee</groupId>
+	<artifactId>polygon</artifactId>
+	<version>0.100</version>
+	<name>Polygon</name>
+	<description>Open Source CRM</description>
+
+	<packaging>war</packaging>
+
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+	    <maven.compiler.target>11</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.mchange</groupId>
+					<artifactId>c3p0</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.11.912</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ocpsoft.prettytime</groupId>
+			<artifactId>prettytime</artifactId>
+			<version>4.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>dev.j2ee</groupId>
+			<artifactId>qio</artifactId>
+			<version>0.15</version>
+		</dependency>
+		<dependency>
+			<groupId>xyz.goioc</groupId>
+			<artifactId>parakeet</artifactId>
+			<version>0.10</version>
+		</dependency>
+
+
+
+		<!-- /// following are maven jetty plugin dependencies /// -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>10.0.7</version>
+		</dependency>
+		<!-- /// end of maven jetty plugin depdencies /// -->
+
+
+
+		<!-- ////// following are embedded jar deps ////// -->
+<!--		<dependency>-->
+<!--			<groupId>org.eclipse.jetty</groupId>-->
+<!--			<artifactId>jetty-webapp</artifactId>-->
+<!--			<version>10.0.7</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.eclipse.jetty</groupId>-->
+<!--			<artifactId>apache-jsp</artifactId>-->
+<!--			<version>10.0.7</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.eclipse.jetty</groupId>-->
+<!--			<artifactId>apache-jstl</artifactId>-->
+<!--			<version>10.0.7</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.eclipse.jetty</groupId>-->
+<!--			<artifactId>jetty-util</artifactId>-->
+<!--			<version>10.0.7</version>-->
+<!--		</dependency>-->
+		<!-- ////// end of embedded jar deps ////// -->
+
+	</dependencies>
+	
+	
+    <build>
+
+		<defaultGoal>package</defaultGoal>
+
+		<resources>
+			<resource>
+				<directory>.</directory>
+				<includes>
+					<include>src/main/webapp/**/*.*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>.</directory>
+				<includes>
+					<include>src/main/resources/**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+<!--			<plugin>-->
+<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+<!--				<version>3.5.1</version>-->
+<!--				<configuration>-->
+<!--					<source>11</source>-->
+<!--					<target>11</target>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+<!--			<plugin>-->
+<!--				<artifactId>maven-assembly-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<descriptorRefs>-->
+<!--						<descriptorRef>jar-with-dependencies</descriptorRef>-->
+<!--					</descriptorRefs>-->
+<!--					<finalName>Polygon</finalName>-->
+<!--					<appendAssemblyId>false</appendAssemblyId>-->
+<!--					<archive>-->
+<!--						<manifest>-->
+<!--							<mainClass>shape.Polygonn>-->
+<!--						</manifest>-->
+<!--					</archive>-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>single</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>10.0.7</version>
+				<configuration>
+					<httpConnector>
+						<port>3001</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
+		</plugins>
+
+    </build>
+
+</project>
