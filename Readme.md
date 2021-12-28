@@ -21,7 +21,7 @@ password :
 
 ### Requirements
 
-* Java 11 or newer
+* Java 8 or newer
 
 
 
