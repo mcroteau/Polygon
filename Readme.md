@@ -1,5 +1,8 @@
 ﻿# Polygon
 
+Polygon is an Open Source CRM / Sales Management System. It is small, 
+sturdy, portable and ready to go with a small command:
+
 ### Run Me.
 
 ```./mvnw package jetty:run```
